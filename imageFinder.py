@@ -16,11 +16,6 @@ class ImageFinder :
     Trouve une image sur internet à partir d'un mot.
     """
     
-    
-    def __init__(self) :
-        pass
-    
-    
     def get_url(self, mot) :
         """Renvoie l'url google image en rapport avec le mot recherche"""
         
@@ -67,5 +62,8 @@ q={mot}\
         html_img = self.get_html(src)
         image = self.get_image(html_img)
         
-        return image
+        return image.convert('RGB')
+    
+    def __call__(self, mot) :
+        return self.image_from_word(mot)
             
