@@ -8,3 +8,4 @@ Il cherche la première image sur google image grâce à BeautifulSoup et la red
 
 On peut choisir la taille du pinceau grâce à un petit menu fait avec Tkinter.
 
+![Morgan Freeman 1](https://user-images.githubusercontent.com/58259424/91612210-3d7ce300-e97d-11ea-847f-e66bdeca351e.png)
