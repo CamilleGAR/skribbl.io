@@ -10,7 +10,6 @@ from tkinter import *
 import keyboard
 from imageFinder import ImageFinder
 from imageTransformer import ImageTransformer
-from skribblFormatConverter import SkribblFormatConverter
 from parametrage import Parametrage
 from canvas import Canvas
 
@@ -25,7 +24,6 @@ class SkribblBot :
         self.driver = webdriver.Chrome('chromedriver')
         self.img_finder = ImageFinder()
         self.img_transformer = ImageTransformer()
-        #self.skribbl_converter = SkribblFormatConverter()
         self.parametrage = Parametrage(Tk(), self)
         self.parametrage.mainloop()
         
