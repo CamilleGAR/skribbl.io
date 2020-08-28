@@ -14,6 +14,8 @@ from skribblFormatConverter import SkribblFormatConverter
 from parametrage import Parametrage
 from canvas import Canvas
 
+import time
+
 
 class SkribblBot :
     
@@ -23,7 +25,7 @@ class SkribblBot :
         self.driver = webdriver.Chrome('chromedriver')
         self.img_finder = ImageFinder()
         self.img_transformer = ImageTransformer()
-        self.skribbl_converter = SkribblFormatConverter(black = (0,0,0), white =(255,255,255))
+        #self.skribbl_converter = SkribblFormatConverter()
         self.parametrage = Parametrage(Tk(), self)
         self.parametrage.mainloop()
         
@@ -38,16 +40,16 @@ class SkribblBot :
         
         mot = self.canvas.mot.text
         x_canvas, y_canvas = self.canvas.zone_dessin.location.values()
-        l_canvas, h_canvas = self.canvas.zone_dessin.size.values()
+        h_canvas, l_canvas = self.canvas.zone_dessin.size.values()
         taille_points = self.parametrage.crayon.get()
-                
+        
         img = self.img_finder(mot)
+        
         self.img_transformer.set_dimensions(l_canvas, h_canvas)
         self.img_transformer.set_taille_points(int(taille_points))
         im_array = self.img_transformer(img)
-        dict_colors = self.skribbl_converter(im_array, l_canvas, x_canvas)
         
-        
+        self.canvas.draw(im_array, int(taille_points))
         
 
 

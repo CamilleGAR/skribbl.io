@@ -23,6 +23,10 @@ class SkribblFormatConverter :
             colors_dict[k] = distance.euclidean(color, self.colors[k])
             
         return min(colors_dict, key = lambda k : colors_dict[k])
+    
+    
+    def add_colors(self, colors) :
+        self.colors.update(colors)
         
         
     def image_converter(self, image, dim_x, dim_y) :
